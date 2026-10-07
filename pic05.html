@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Wedding of Arin & Dito</title>
 
-  <!-- Google Fonts: Gabarito & Lato -->
+  <!-- Google Fonts: Gabarito, Lato, & Cinzel Decorative -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600&family=Lato:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Gabarito:wght@600&family=Lato:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================================
@@ -220,7 +220,6 @@
       overflow: hidden;
     }
 
-    /* SLIDER BACKGROUND LOOP (Diatur Sedang: 28 Detik) */
     .bg-slider-container {
       position: absolute;
       top: 0;
@@ -238,7 +237,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.15); /* Kegelapan 15% */
+      background: rgba(0, 0, 0, 0.15);
       z-index: 2;
     }
 
@@ -246,7 +245,7 @@
       display: flex;
       width: 400vw;
       height: 100%;
-      animation: slideLoop 28s linear infinite; /* Kecepatan sedang */
+      animation: slideLoop 28s linear infinite;
     }
 
     .bg-slide {
@@ -266,7 +265,6 @@
       100% { transform: translateX(-300vw); }
     }
 
-    /* KONTEN UTAMA SEGMEN 2 */
     .welcome-content {
       position: relative;
       z-index: 3;
@@ -289,11 +287,10 @@
       text-transform: uppercase;
     }
 
-    /* Teks Arin & Dito: Normal (Tidak Bold), 35px */
     .text-nama-sansilk {
       font-family: 'Sansilk', cursive, sans-serif;
-      font-weight: normal; /* Tidak Bold */
-      font-size: 35px; /* Ukuran 35px */
+      font-weight: normal;
+      font-size: 45px;
       line-height: 1.2;
       background: linear-gradient(270deg, #ffffff, #b0b0b0, #d6d6d6, #808080);
       background-size: 300% 300%;
@@ -303,7 +300,6 @@
       margin: 10px 0;
     }
 
-    /* Ornamen Garis-Daun-Garis */
     .ornament-divider {
       display: flex;
       align-items: center;
@@ -319,7 +315,6 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
     }
 
-    /* SVG Daun Sesuai Gambar Referensi */
     .ornament-leaf-svg {
       width: 24px;
       height: 28px;
@@ -338,6 +333,137 @@
       line-height: 1.8;
       letter-spacing: 0.5px;
       padding: 0 10px;
+    }
+
+    /* =========================================================
+       6. STYLES SEGMEN 3: PROFILE SECTION
+       ========================================================= */
+    #section-profile {
+      position: relative;
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+                  url('background/pic05.jpg') center/cover no-repeat fixed;
+    }
+
+    /* Shape Frame Arc (Glassmorphism + Gold Border) */
+    .profile-card-arc {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      padding: 35px 22px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.82); /* Opacity Putih Blur */
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      
+      /* Shape Arc Atas Bawah Setengah Lingkaran */
+      border-radius: 120px 120px 120px 120px;
+      
+      /* Garis Tepi Tipis 2px Gold Gradient */
+      border: 2px solid transparent;
+      border-image: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c) 1;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .profile-salam {
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-size: 11px;
+      color: #222222;
+      margin-bottom: 12px;
+    }
+
+    .profile-intro {
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-size: 9px;
+      color: #222222;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    /* Font Cinzel Decorative Dark Gold Gradasi Animasi */
+    .text-mempelai-cinzel {
+      font-family: 'Cinzel Decorative', serif;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 1.2;
+      background: linear-gradient(270deg, #8a6421, #d4af37, #9b722b, #f3e5ab, #8a6421);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldGradientMove 5s ease infinite;
+      margin-bottom: 6px;
+    }
+
+    @keyframes goldGradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .profile-orangtua {
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-size: 10px;
+      color: #222222;
+      margin-bottom: 14px;
+    }
+
+    /* Tombol Instagram Style */
+    .btn-instagram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: #ffffff;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      text-decoration: none;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-instagram:active {
+      transform: scale(0.95);
+    }
+
+    .btn-instagram svg {
+      width: 12px;
+      height: 12px;
+      fill: #ffffff;
+    }
+
+    /* Pembatas - D E N G A N - */
+    .divider-dengan {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 25px 0;
+    }
+
+    .divider-dengan .line {
+      flex: 1;
+      height: 1px;
+      background: rgba(180, 140, 50, 0.5);
+    }
+
+    .divider-dengan span {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      color: #333333;
+      letter-spacing: 3px;
     }
 
     /* ANIMASI SCROLL FADE IN / OUT */
@@ -368,7 +494,6 @@
         <div class="text-maaf">Mohon maaf apabila ada kesalahan dalam penulisan nama atau gelar</div>
 
         <button class="btn-open" onclick="bukaUndangan()">
-          <!-- SVG Daun Simpel -->
           <svg class="leaf-icon" viewBox="0 0 24 24">
             <path d="M12 2C6.5 2 3 7 3 13c0 5 4 9 9 9s9-4 9-9c0-6-3.5-11-9-11z"></path>
             <path d="M12 22V8"></path>
@@ -387,8 +512,6 @@
       
       <!-- SEGMEN 2: WELCOME TO OUR WEDDING -->
       <section id="section-welcome">
-        
-        <!-- Background Slide Loop -->
         <div class="bg-slider-container">
           <div class="bg-slider-track">
             <div class="bg-slide bg-slide-1"></div>
@@ -398,21 +521,15 @@
           </div>
         </div>
 
-        <!-- Konten Utama Rata Tengah -->
         <div class="welcome-content">
           <div class="text-welcome scroll-fade">Welcome To Our Wedding</div>
-
           <div class="text-nama-sansilk scroll-fade">Arin & Dito</div>
 
-          <!-- Ornamen Garis - Daun Sesuai Referensi - Garis -->
           <div class="ornament-divider scroll-fade">
             <div class="ornament-line"></div>
             <svg class="ornament-leaf-svg" viewBox="0 0 24 28">
-              <!-- Bentuk Daun Luar -->
               <path d="M12 2C6.5 2 3 7.5 3 14c0 5.5 4 11 9 11s9-5.5 9-11C21 7.5 17.5 2 12 2z"></path>
-              <!-- Serat Utang Tengah -->
               <path d="M12 25V6"></path>
-              <!-- Cabang Serat Kiri & Kanan -->
               <path d="M12 18l-4.5-3.5"></path>
               <path d="M12 14.5l4.5-3.5"></path>
               <path d="M12 11l-3.5-3"></path>
@@ -423,6 +540,48 @@
           <div class="text-pembuka scroll-fade">
             Once in a while, right in the middle of an ordinary life, love gives us a fairy tale. Together with our families, we invite you to share in our joy.
           </div>
+        </div>
+      </section>
+
+      <!-- SEGMEN 3: PROFILE MEMPELAI -->
+      <section id="section-profile">
+        
+        <!-- Shape Frame Arc Blur Glassmorphism -->
+        <div class="profile-card-arc scroll-fade">
+          
+          <div class="profile-salam">Assalamu'alaikum Warahmatullahi Wabarakatuh</div>
+          
+          <div class="profile-intro">
+            Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk berkenan hadir dan memberikan doa restu pada acara pernikahan putra-putri kami :
+          </div>
+
+          <!-- Mempelai Wanita -->
+          <div class="text-mempelai-cinzel">Arin Maharani</div>
+          <div class="profile-orangtua">Putri Pertama dari Bapak Budi dan Ibu Budi</div>
+          <a href="https://instagram.com/artbayri" target="_blank" class="btn-instagram">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+
+          <!-- Garis Lurus - D E N G A N - Garis Lurus -->
+          <div class="divider-dengan">
+            <div class="line"></div>
+            <span>D E N G A N</span>
+            <div class="line"></div>
+          </div>
+
+          <!-- Mempelai Pria -->
+          <div class="text-mempelai-cinzel">Dito Wijaya</div>
+          <div class="profile-orangtua">Putra Pertama dari Bapak Jaya dan Ibu Jaya</div>
+          <a href="https://instagram.com/artbayri" target="_blank" class="btn-instagram">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+
         </div>
 
       </section>
