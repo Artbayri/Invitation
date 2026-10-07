@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wedding of Arin & Dito</title>
+
+  <!-- Google Fonts: Gabarito & Lato -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600&family=Lato:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       1. DEKLARASI FONT CUSTOM
+       ========================================================= */
+    @font-face {
+      font-family: 'BarokahSignature';
+      src: url('font/BarokahSignatureRegular-PK15Z.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* =========================================================
+       2. RESET & STYLES DASAR
+       ========================================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #111111;
+      font-family: 'Lato', sans-serif;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Container Utama Mobile View (Max-width 480px, Tampil Penuh & Pas) */
+    .mobile-container {
+      max-width: 480px;
+      min-height: 100vh;
+      margin: 0 auto;
+      position: relative;
+      background-color: #0d0d0d;
+      box-shadow: 0 0 25px rgba(0,0,0,0.8);
+      overflow: hidden;
+    }
+
+    /* Kelas Animasi Transisi Fade */
+    .fade-in {
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .fade-out {
+      animation: fadeOut 0.8s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(1.02); visibility: hidden; }
+    }
+
+    /* =========================================================
+       3. STYLES SECTION 1: SAMPUL / COVER
+       ========================================================= */
+    #section-cover {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      height: 100vh;
+      height: 100dvh; /* Menyesuaikan layar mobile penuh tanpa terpotong bar browser */
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 24px 16px;
+      
+      /* Background Image dengan Dark Overlay Gelap */
+      background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+                  url('background/pic05.jpg') center/cover no-repeat;
+    }
+
+    /* Teks: The Wedding */
+    .text-the-wedding {
+      font-family: 'BarokahSignature', cursive;
+      color: #ffffff;
+      font-size: 12px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      margin-bottom: 8px;
+    }
+
+    /* Teks: ARIN & DITO (Gradient Grey Elegant) */
+    .text-mempelai {
+      font-family: 'Gabarito', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 50%, #9e9e9e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 24px; /* Enter x3 sebanding space */
+    }
+
+    /* Teks: Kepada Yth. */
+    .text-kepada {
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 9px;
+      white-space: nowrap;
+      margin-bottom: 4px;
+    }
+
+    /* Teks: Nama Tamu Undangan */
+    .text-tamu {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 12px;
+      white-space: nowrap;
+      margin-bottom: 6px;
+      text-transform: capitalize;
+    }
+
+    /* Teks: Mohon maaf... */
+    .text-maaf {
+      font-family: 'Lato', sans-serif;
+      font-style: italic;
+      color: #ffffff;
+      font-size: 7px;
+      white-space: nowrap;
+      opacity: 0.9;
+      margin-bottom: 24px; /* Enter x3 sebanding space */
+    }
+
+    /* Tombol Open Invitation */
+    .btn-open {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 30px;
+      color: #ffffff;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      outline: none;
+      
+      /* Gradient Bergerak background-size */
+      background: linear-gradient(270deg, #4a4a4a, #8a8a8a, #2c2c2c, #707070);
+      background-size: 300% 300%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-open:active {
+      transform: scale(0.95);
+      animation: gradientMove 0.6s ease infinite;
+    }
+
+    /* Ornamen Daun / Leaf Line Simpel SVG */
+    .leaf-icon {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* =========================================================
+       4. CONTAINER UNTUK SECTION BERIKUTNYA (AKAN DISAMBUNG)
+       ========================================================= */
+    #main-content {
+      display: none; /* Tersembunyi saat sampul terbuka */
+      min-height: 100vh;
+      width: 100%;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-container">
+
+    <!-- =========================================================
+         SEGMEN 1: COVER / SAMPUL UNDANGAN
+         ========================================================= -->
+    <section id="section-cover" class="fade-in">
+      
+      <!-- Judul Acara -->
+      <div class="text-the-wedding">The Wedding</div>
+      <div class="text-mempelai">ARIN & DITO</div>
+
+      <!-- Detail Penerima Undangan -->
+      <div class="text-kepada">Kepada Yth.</div>
+      <div id="nama-tamu" class="text-tamu">Tamu Undangan</div>
+      <div class="text-maaf">Mohon maaf apabila ada kesalahan dalam penulisan nama atau gelar</div>
+
+      <!-- Tombol Buka Undangan -->
+      <button class="btn-open" onclick="bukaUndangan()">
+        <!-- SVG Ornamen Leaf Line Simpel -->
+        <svg class="leaf-icon" viewBox="0 0 24 24">
+          <path d="M11 20A9 9 0 0 1 3 12A9 9 0 0 1 15 3c2 3 2 6 0 9l-4 4"></path>
+          <path d="M11 20c2-3 2-6 0-9"></path>
+          <path d="M3 21l8-8"></path>
+        </svg>
+        <span>Open Invitation</span>
+      </button>
+
+    </section>
+
+    <!-- =========================================================
+         SEGMEN BERIKUTNYA AKAN DITEMPEL DI BAWAH INI
+         ========================================================= -->
+    <main id="main-content">
+      <!-- Kode Section 2 (Profil, Tanggal, dll) akan ditempel di sini nanti -->
+    </main>
+
+  </div>
+
+  <!-- =========================================================
+       5. JAVASCRIPT: PARAMETER LINK & TRANSISI HILANG
+       ========================================================= -->
+  <script>
+    // 1. Mengambil Parameter ?to= dari URL
+    function ambilNamaTamu() {
+      const urlParams = new URLSearchParams(window.location.search);
+      let nama = urlParams.get('to');
+
+      if (nama) {
+        // Mengganti strip (-) atau plus (+) dengan spasi
+        nama = nama.replace(/[-+]/g, ' ');
+        document.getElementById('nama-tamu').textContent = nama;
+      }
+    }
+
+    // 2. Fungsi Buka Undangan saat tombol diklik
+    function bukaUndangan() {
+      const cover = document.getElementById('section-cover');
+      const content = document.getElementById('main-content');
+
+      // Animasi Fade Out pada Sampul
+      cover.classList.remove('fade-in');
+      cover.classList.add('fade-out');
+
+      // Sembunyikan sampul sepenuhnya setelah animasi selesai dan tampilkan isi berikutnya
+      setTimeout(() => {
+        cover.style.display = 'none';
+        content.style.display = 'block';
+        content.classList.add('fade-in');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 750);
+    }
+
+    // Jalankan fungsi saat halaman selesai dimuat
+    window.addEventListener('DOMContentLoaded', ambilNamaTamu);
+  </script>
+
+</body>
+</html>
