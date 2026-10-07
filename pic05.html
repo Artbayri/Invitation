@@ -73,7 +73,7 @@
     }
 
     /* =========================================================
-       3. STYLES SECTION 1: SAMPUL / COVER (FULL SCREEN)
+       3. STYLES SECTION 1: SAMPUL / COVER
        ========================================================= */
     #section-cover {
       position: fixed;
@@ -89,7 +89,6 @@
       align-items: center;
       text-align: center;
       padding: 24px 16px;
-      /* Background Full Screen */
       background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
                   url('background/pic05.jpg') center/cover no-repeat;
     }
@@ -196,7 +195,7 @@
     }
 
     /* =========================================================
-       4. CONTAINER MAIN CONTENT (SEGMEN 2 DST)
+       4. CONTAINER MAIN CONTENT
        ========================================================= */
     #main-content {
       display: none;
@@ -205,7 +204,7 @@
     }
 
     /* =========================================================
-       5. STYLES SEGMEN 2: HERO / WELCOME SECTION (FULL SCREEN)
+       5. STYLES SEGMEN 2: HERO / WELCOME SECTION
        ========================================================= */
     #section-welcome {
       position: relative;
@@ -221,7 +220,7 @@
       overflow: hidden;
     }
 
-    /* SLIDER BACKGROUND LOOP FULL SCREEN */
+    /* SLIDER BACKGROUND LOOP (Diatur Sedang: 28 Detik) */
     .bg-slider-container {
       position: absolute;
       top: 0;
@@ -245,9 +244,9 @@
 
     .bg-slider-track {
       display: flex;
-      width: 400vw; /* 4 slide penuh layar */
+      width: 400vw;
       height: 100%;
-      animation: slideLoop 18s linear infinite;
+      animation: slideLoop 28s linear infinite; /* Kecepatan sedang */
     }
 
     .bg-slide {
@@ -290,10 +289,11 @@
       text-transform: uppercase;
     }
 
+    /* Teks Arin & Dito: Normal (Tidak Bold), 35px */
     .text-nama-sansilk {
       font-family: 'Sansilk', cursive, sans-serif;
-      font-weight: bold;
-      font-size: 35px;
+      font-weight: normal; /* Tidak Bold */
+      font-size: 35px; /* Ukuran 35px */
       line-height: 1.2;
       background: linear-gradient(270deg, #ffffff, #b0b0b0, #d6d6d6, #808080);
       background-size: 300% 300%;
@@ -303,6 +303,7 @@
       margin: 10px 0;
     }
 
+    /* Ornamen Garis-Daun-Garis */
     .ornament-divider {
       display: flex;
       align-items: center;
@@ -318,12 +319,13 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
     }
 
+    /* SVG Daun Sesuai Gambar Referensi */
     .ornament-leaf-svg {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 28px;
       fill: none;
       stroke: #ffffff;
-      stroke-width: 1.5;
+      stroke-width: 1.8;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
@@ -366,10 +368,14 @@
         <div class="text-maaf">Mohon maaf apabila ada kesalahan dalam penulisan nama atau gelar</div>
 
         <button class="btn-open" onclick="bukaUndangan()">
+          <!-- SVG Daun Simpel -->
           <svg class="leaf-icon" viewBox="0 0 24 24">
-            <path d="M11 20A9 9 0 0 1 3 12A9 9 0 0 1 15 3c2 3 2 6 0 9l-4 4"></path>
-            <path d="M11 20c2-3 2-6 0-9"></path>
-            <path d="M3 21l8-8"></path>
+            <path d="M12 2C6.5 2 3 7 3 13c0 5 4 9 9 9s9-4 9-9c0-6-3.5-11-9-11z"></path>
+            <path d="M12 22V8"></path>
+            <path d="M12 14l-4-3"></path>
+            <path d="M12 11l4-3"></path>
+            <path d="M12 18l-3-2"></path>
+            <path d="M12 16l3-2"></path>
           </svg>
           <span>Open Invitation</span>
         </button>
@@ -398,12 +404,18 @@
 
           <div class="text-nama-sansilk scroll-fade">Arin & Dito</div>
 
+          <!-- Ornamen Garis - Daun Sesuai Referensi - Garis -->
           <div class="ornament-divider scroll-fade">
             <div class="ornament-line"></div>
-            <svg class="ornament-leaf-svg" viewBox="0 0 24 24">
-              <path d="M11 20A9 9 0 0 1 3 12A9 9 0 0 1 15 3c2 3 2 6 0 9l-4 4"></path>
-              <path d="M11 20c2-3 2-6 0-9"></path>
-              <path d="M3 21l8-8"></path>
+            <svg class="ornament-leaf-svg" viewBox="0 0 24 28">
+              <!-- Bentuk Daun Luar -->
+              <path d="M12 2C6.5 2 3 7.5 3 14c0 5.5 4 11 9 11s9-5.5 9-11C21 7.5 17.5 2 12 2z"></path>
+              <!-- Serat Utang Tengah -->
+              <path d="M12 25V6"></path>
+              <!-- Cabang Serat Kiri & Kanan -->
+              <path d="M12 18l-4.5-3.5"></path>
+              <path d="M12 14.5l4.5-3.5"></path>
+              <path d="M12 11l-3.5-3"></path>
             </svg>
             <div class="ornament-line"></div>
           </div>
@@ -420,7 +432,6 @@
   </div>
 
   <script>
-    // 1. Fungsi Ambil Nama Tamu dari Parameter ?to=
     function ambilNamaTamu() {
       const urlParams = new URLSearchParams(window.location.search);
       let nama = urlParams.get('to');
@@ -431,7 +442,6 @@
       }
     }
 
-    // 2. Fungsi Buka Undangan saat Tombol Diklik
     function bukaUndangan() {
       const cover = document.getElementById('section-cover');
       const content = document.getElementById('main-content');
@@ -445,12 +455,10 @@
         content.classList.add('fade-in');
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // Inisialisasi ulang observer setelah elemen tampil
         inisialisasiScrollAnimation();
       }, 750);
     }
 
-    // 3. Observer untuk Animasi Scroll Fade-In & Fade-Out Smooth
     function inisialisasiScrollAnimation() {
       const observerOptions = {
         root: null,
@@ -473,7 +481,6 @@
       });
     }
 
-    // Jalankan saat pertama kali dibuka
     window.addEventListener('DOMContentLoaded', () => {
       ambilNamaTamu();
       inisialisasiScrollAnimation();
