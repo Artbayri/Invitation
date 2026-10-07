@@ -9,7 +9,166 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600&family=Lato:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+  /* =========================================================
+       DEKLARASI FONT SEGMEN 2 (SANSILK)
+       ========================================================= */
+    @font-face {
+      font-family: 'Sansilk';
+      src: url('font/font/Sansilk-p71dD.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
 
+    /* =========================================================
+       STYLES SEGMEN 2: HERO / WELCOME SECTION
+       ========================================================= */
+    #section-welcome {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh; /* Layar Penuh Mobile */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px 20px;
+      overflow: hidden;
+    }
+
+    /* SLIDER BACKGROUND LOOP (Kanan ke Kiri Tanpa Putus) */
+    .bg-slider-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    /* Dark Overlay 15% */
+    .bg-slider-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.15); /* Kegelapan 15% */
+      z-index: 2;
+    }
+
+    .bg-slider-track {
+      display: flex;
+      width: 300%; /* 3 gambar x 100% */
+      height: 100%;
+      animation: slideLoop 18s linear infinite;
+    }
+
+    .bg-slide {
+      width: 100vw;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+    }
+
+    .bg-slide-1 { background-image: url('background/pic05-1.jpg'); }
+    .bg-slide-2 { background-image: url('background/pic05-2.jpg'); }
+    .bg-slide-3 { background-image: url('background/pic05-3.jpg'); }
+
+    @keyframes slideLoop {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-66.666%); }
+    }
+
+    /* KONTEN UTAMA SEGMEN 2 */
+    .welcome-content {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 80%; /* Menyesuaikan agar konten terbagi rata mengisi layar */
+    }
+
+    /* Teks: Welcome To Our Wedding (Lato Thin / White / 15px) */
+    .text-welcome {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      color: #ffffff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Teks: Arin & Dito (Sansilk / Bold / 35px / Gradient Grey Bergerak) */
+    .text-nama-sansilk {
+      font-family: 'Sansilk', cursive, sans-serif;
+      font-weight: bold;
+      font-size: 35px;
+      line-height: 1.2;
+      background: linear-gradient(270deg, #ffffff, #b0b0b0, #d6d6d6, #808080);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 4s ease infinite;
+      margin: 10px 0;
+    }
+
+    /* Ornamen Garis - Daun - Garis */
+    .ornament-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 80%;
+      margin: 15px 0;
+    }
+
+    .ornament-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    }
+
+    .ornament-leaf-svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Kata Pembuka: Once in a while... (Lato Medium / White / 11px) */
+    .text-pembuka {
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-size: 11px; /* Ditingkatkan dari 10px ke 11px agar lebih terbaca */
+      color: #ffffff;
+      line-height: 1.8;
+      letter-spacing: 0.5px;
+      padding: 0 10px;
+    }
+
+    /* ANIMASI SCROLL FADE IN / FADE OUT SMOOTH */
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .scroll-fade.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   <style>
     /* =========================================================
        1. DEKLARASI FONT CUSTOM
@@ -234,7 +393,50 @@
 
     <!-- AREA UNTUK SEGMEN BERIKUTNYA -->
     <main id="main-content">
-      <!-- Kode Section 2 akan disalin di sini -->
+      <!-- =========================================================
+         SEGMEN 2: WELCOME TO OUR WEDDING (HERO SECTION)
+         ========================================================= -->
+    <section id="section-welcome">
+      
+      /* Background Slide Loop */
+      <div class="bg-slider-container">
+        <div class="bg-slider-track">
+          <div class="bg-slide bg-slide-1"></div>
+          <div class="bg-slide bg-slide-2"></div>
+          <div class="bg-slide bg-slide-3"></div>
+          <!-- Duplicate slide 1 untuk efek loop tanpa putus -->
+          <div class="bg-slide bg-slide-1"></div>
+        </div>
+      </div>
+
+      <!-- Konten Utama Rata Tengah -->
+      <div class="welcome-content">
+        
+        <!-- Welcome Text -->
+        <div class="text-welcome scroll-fade">Welcome To Our Wedding</div>
+
+        <!-- Nama Pengantin (Font Sansilk 35px) -->
+        <div class="text-nama-sansilk scroll-fade">Arin & Dito</div>
+
+        <!-- Ornamen Garis-Daun-Garis -->
+        <div class="ornament-divider scroll-fade">
+          <div class="ornament-line"></div>
+          <svg class="ornament-leaf-svg" viewBox="0 0 24 24">
+            <path d="M11 20A9 9 0 0 1 3 12A9 9 0 0 1 15 3c2 3 2 6 0 9l-4 4"></path>
+            <path d="M11 20c2-3 2-6 0-9"></path>
+            <path d="M3 21l8-8"></path>
+          </svg>
+          <div class="ornament-line"></div>
+        </div>
+
+        <!-- Kata Pembuka -->
+        <div class="text-pembuka scroll-fade">
+          Once in a while, right in the middle of an ordinary life, love gives us a fairy tale. Together with our families, we invite you to share in our joy.
+        </div>
+
+      </div>
+
+    </section>
     </main>
 
   </div>
@@ -267,6 +469,33 @@
 
     window.addEventListener('DOMContentLoaded', ambilNamaTamu);
   </script>
+  <style>
+    // Observer untuk Animasi Scroll Fade-In & Fade-Out Smooth
+    function inisialisasiScrollAnimation() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
 
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          } else {
+            entry.target.classList.remove('is-visible'); // Agar animasi ulang saat di-scroll balik
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.scroll-fade').forEach(element => {
+        observer.observe(element);
+      });
+    }
+
+    // Jalankan observer saat halaman siap
+    window.addEventListener('DOMContentLoaded', () => {
+      inisialisasiScrollAnimation();
+    });
 </body>
 </html>
