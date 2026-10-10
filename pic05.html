@@ -175,6 +175,9 @@
 
     .btn-open:active {
       transform: scale(0.95);
+    }
+
+    .btn-open:hover {
       animation: gradientMove 0.6s ease infinite;
     }
 
@@ -280,7 +283,6 @@
       height: 85%;
     }
 
-   /* Lanjutan .text-welcome yang terpotong */
     .text-welcome {
       font-family: 'Lato', sans-serif;
       font-size: 14px;
@@ -290,13 +292,76 @@
 </head>
 <body>
 
-  <!-- Konten Utama Anda di sini -->
   <div class="mobile-container">
-    <!-- ... -->
+    
+    <!-- SECTION 1: COVER / SAMPUL -->
+    <section id="section-cover">
+      <div class="cover-content">
+        <div class="text-the-wedding">The Wedding of</div>
+        <div class="text-mempelai">Arin & Dito</div>
+
+        <div class="text-kepada">Kepada Yth.</div>
+        <div class="text-tamu" id="nama-tamu">Tamu Undangan</div>
+        <div class="text-maaf">Mohon maaf apabila ada kesalahan penulisan nama/gelar</div>
+
+        <button class="btn-open" onclick="bukaUndangan()">
+          <svg class="leaf-icon" viewBox="0 0 24 24">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c2.4 2 3 3.5 2.1 9.2A7 7 0 0 1 11 20z"></path>
+            <path d="M2 21c0-3 1.8-5.2 5-6"></path>
+          </svg>
+          Buka Undangan
+        </button>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT (TERSEMBUNYI SEBELUM DIBUKA) -->
+    <div id="main-content">
+      <!-- SLIDER BACKGROUND FIXED -->
+      <div class="bg-slider-container">
+        <div class="bg-slider-track">
+          <div class="bg-slide bg-slide-1"></div>
+          <div class="bg-slide bg-slide-2"></div>
+          <div class="bg-slide bg-slide-3"></div>
+          <div class="bg-slide bg-slide-1"></div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: WELCOME / HERO -->
+      <section id="section-welcome">
+        <div class="welcome-content">
+          <h2 class="text-welcome">Selamat Datang di Acara Pernikahan Kami</h2>
+        </div>
+      </section>
+    </div>
+
   </div>
 
   <script>
-    // Script JavaScript Anda untuk membuka undangan (jika ada)
+    // Ambil parameter nama tamu dari URL (contoh: ?to=Nama+Tamu)
+    const urlParams = new URLSearchParams(window.location.search);
+    const namaTamu = urlParams.get('to');
+    if (namaTamu) {
+      document.getElementById('nama-tamu').innerText = namaTamu;
+    }
+
+    // Fungsi untuk membuka undangan
+    function bukaUndangan() {
+      const cover = document.getElementById('section-cover');
+      const mainContent = document.getElementById('main-content');
+
+      // Tampilkan konten utama
+      mainContent.style.display = 'block';
+      
+      // Jalankan animasi fade-out pada cover
+      cover.classList.add('fade-out');
+
+      // Sembunyikan elemen cover sepenuhnya setelah animasi selesai
+      setTimeout(() => {
+        cover.style.display = 'none';
+        window.scrollTo(0, 0);
+      }, 800);
+    }
   </script>
+
 </body>
 </html>
